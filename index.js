@@ -45,6 +45,16 @@ bot.on("message", async message =>{
   let pingEmoji = ""
   let bPing = bot.ping
   //
+  var check = message.mentions.users.first()
+  if(check.id = bot.user.id){
+    let h1Embed = new discord.RichEmbed()
+    .setTitle(`Help`)
+    .setDescription(`Help, information, and links for ${bot.user.username}.`)
+    .addField(`Proudly Created by`,`Mist#3296 with the ID 506645322139697153`)
+    .addField(`prefix`,`The prefix is **${prefix}**`)
+    message.channel.send(h1Embed)
+  }
+
   if(cmd === `${prefix}help`){
     let hEmbed = new discord.RichEmbed()
     .setTitle(`Help`)
