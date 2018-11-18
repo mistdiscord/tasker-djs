@@ -44,7 +44,6 @@ bot.on("message", async message =>{
   let args = messageArray.slice(1)
   let pingEmoji = ""
   let bPing = bot.ping
-  }
 //
   if(cmd === `${prefix}help`){
     let hEmbed = new discord.RichEmbed()
