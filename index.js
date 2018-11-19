@@ -16,7 +16,7 @@ var rColor = "no"
 
 bot.on("ready", async () => {
   console.log(`${bot.user.username} is online`)
-  bot.user.setActivity(`with settings... | say !help`)
+  bot.user.setActivity(`with settings...`)
 })
 
 bot.on("message", async message =>{
@@ -44,7 +44,17 @@ bot.on("message", async message =>{
   let args = messageArray.slice(1)
   let pingEmoji = ""
   let bPing = bot.ping
-//
+  //
+  var check = message.mentions.users.first()
+  if(check.id = bot.user.id){
+    let h1Embed = new discord.RichEmbed()
+    .setTitle(`Help`)
+    .setDescription(`Help, information, and links for ${bot.user.username}.`)
+    .addField(`Proudly Created by`,`Mist#3296 with the ID 506645322139697153`)
+    .addField(`prefix`,`The prefix is **${prefix}**`)
+    message.channel.send(h1Embed)
+  }
+
   if(cmd === `${prefix}help`){
     let hEmbed = new discord.RichEmbed()
     .setTitle(`Help`)
@@ -251,6 +261,19 @@ if(cmd === `${prefix}gayp`){
     .setImage(gA)
     return message.channel.send(gayEmbed)
   }
+//
+  if(cmd === `${prefix}dick`){
+    if(!message.channel.nsfw) return message.channel.send(notNSFW)
+    var dickImgs = [
+    ''
+
+  ]
+    var dA = dickImgs[Math.floor(Math.random() * dickImgs.length)];
+    let dickEmbed = new discord.RichEmbed()
+      .setColor(sColor)
+      .setImage(dA)
+      return message.channel.send(dickEmbed)
+    }
 //
 if(cmd === `${prefix}boobs`){
   if(!message.channel.nsfw) return message.channel.send(notNSFW)
