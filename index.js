@@ -52,9 +52,9 @@ bot.on("message", async message =>{
     .setDescription(`Help, information, and links for ${bot.user.username}.`)
     .addField(`Proudly Created by`,`Mist#3296 with the ID 506645322139697153`)
     .addField(`prefix`,`The prefix is **${prefix}**`)
-    .addField(`ping`,`Pong, ${bPing} is the bot's ping :ping_pong:`)
+    .addField(`ping`,`Pong, ${bPing}ms is the bot's ping :ping_pong:`)
     .setColor(rColor)
-    .addField(`--Server Commands--`,`Server Commands you can use`)
+    .addField(`———Server Commands———`,`Server Commands you can use`)
     .addField(`help`,`Brings this nifty message up`)
     .addField(`ping`,`Tells you how fast the bot's connection is`)
     .addField(`gay [user]`,`Tells you how gay [user] is`)
@@ -87,7 +87,7 @@ bot.on("message", async message =>{
     let pEmbed = new discord.RichEmbed()
     .setTitle("Ping")
     .setColor(rColor)
-    .setDescription(`Pong, ${bPing} is the bot's ping :ping_pong:`)
+    .setDescription(`Pong, ${bPing}ms is the bot's ping :ping_pong:`)
     message.channel.send(pEmbed)
   }
 //
@@ -179,7 +179,7 @@ if(cmd === `${prefix}nsfwhelp`){
   .addField(`boobs`,`self explanatory`)
   .addField(`pussy`,`self explanatory`)
   .addField(`hentai`,`self explanatory`)
-  .addField(`coming soon`,`self explanatory`)
+  .addField(`loli`,`self explanatory`)
   .addField(`coming soon`,`self explanatory`)
 
   //.setThumbnail(`https://picsum.photos/200/300/?random`)
@@ -284,6 +284,15 @@ if(cmd === `${prefix}boobs`){
     .setImage(bbA)
     return message.channel.send(bbEmbed)
   }
+//
+if(cmd === `${prefix}loli`){
+  if(!message.channel.nsfw) return message.channel.send(notNSFW)
+  let loliEmbed = new discord.RichEmbed()
+    .setColor(fColor)
+    .setTitle("Excuse me what the fuck")
+    return message.channel.send(loliEmbed)
+  }
+
 //
 // if(cmd === `${prefix}porn`){
 //   if(!message.channel.nsfw) return message.channel.send(notNSFW)
