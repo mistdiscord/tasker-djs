@@ -16,7 +16,7 @@ var rColor = "no"
 
 bot.on("ready", async () => {
   console.log(`${bot.user.username} is online`)
-  bot.user.setActivity(`with settings... | !help`)
+  bot.user.setActivity(`with ${bot.guilds.size} servers | !help`)
 })
 
 bot.on("message", async message =>{
