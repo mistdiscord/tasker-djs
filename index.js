@@ -179,7 +179,7 @@ if(cmd === `${prefix}nsfwhelp`){
   .addField(`boobs`,`self explanatory`)
   .addField(`pussy`,`self explanatory`)
   .addField(`hentai`,`self explanatory`)
-  .addField(`loli`,`self explanatory`)
+  .addField(`coming soon`,`self explanatory`)
   .addField(`coming soon`,`self explanatory`)
 
   //.setThumbnail(`https://picsum.photos/200/300/?random`)
@@ -292,8 +292,32 @@ if(cmd === `${prefix}loli`){
     .setTitle("Excuse me what the fuck")
     return message.channel.send(loliEmbed)
   }
-
 //
+if(cmd === `${prefix}hentai`){
+  if(!message.channel.nsfw) return message.channel.send(notNSFW)
+  var heImgs = [
+  'http://1.bp.blogspot.com/-tSB24NLrTFQ/UoPgufYJQgI/AAAAAAAADFk/0td4-SU0NiY/s640/OVA+golden+age+2.jpg',
+  'http://hentaihaven.org/package/2016/08/HH-Boku-no-Yayoi-San-Episode-3-and-4-DVD-A9675EB5.mp4_snapshot_25.23_2016.08.11_23.56.37.jpg',
+  'https://cartoonporn.tv/wp-content/uploads/2017/06/Boku-No-Yayoi-San-3-Hentai-Sex-Cartoon-Porn-TV-600x343.png',
+  'https://img-egc.xvideos-cdn.com/videos/thumbslll/e3/d3/8e/e3d38e9569cb5bed696f2210778ce0cc/e3d38e9569cb5bed696f2210778ce0cc.21.jpg',
+  'https://img-l3.xnxx-cdn.com/videos/thumbslll/8d/66/b1/8d66b10e2f9241547d7682eb79baa350/8d66b10e2f9241547d7682eb79baa350.22.jpg',
+  'https://konachan.com/jpeg/f5bd1ba475c0515c556076f7c073e581/Konachan.com%20-%20211348%20breasts%20game_cg%20komori_kei%20long_hair%20navel%20nipples%20open_shirt%20penis%20pubic_hair%20pussy%20ricotta%20sex%20spread_legs%20thighhighs%20uncensored%20walkure_romanze.jpg',
+  'https://cdnio.luscious.net/baldan/921/lusciousnet_lusciousnet_konachancom-194344-blush-bra-breasts_759360845.1024x0.jpg',
+  'https://konachan.com/jpeg/9321b2b48344ef76cc8baad476157fbb/Konachan.com%20-%20199306%20ass%20bra%20brown_eyes%20brown_hair%20close%20game_cg%20giga%20haru_kiss%20long_hair%20mikoto_akemi%20navel%20panties%20shiraishi_aoi%20underwear.jpg',
+  'https://konachan.com/jpeg/97ae222f387528302d610efc27659f66/Konachan.com%20-%20207332%20blue_hair%20flat_chest%20food%20game_cg%20himeguri_karin%20lump_of_sugar%20moekibara_fumitake%20nipples%20pussy%20pussy_juice%20socks%20spread_legs%20uncensored.jpg',
+  'http://hentaihaven.org/package/2015/10/rb3.png',
+  'http://hentaihaven.org/package/2016/06/HH-Chijoku-no-Seifuku-Episode-2-DVD-FC4F87B6.mp4_snapshot_12.13_2016.06.30_06.32.01-768x432.jpg',
+  'http://hentaihaven.org/package/2018/03/HH-Oppai-Gakuen-Marching-Band-bu-01-DVD-1436CA2F.mp4_snapshot_22.28_2018.03.11_02.11.00-512x288.png',
+  'http://www.semafoor.eu/image/5eef17608fcc553155c00ef8fb914f39.jpg'
+]
+  var heA = heImgs[Math.floor(Math.random() * heImgs.length)];
+  let heEmbed = new discord.RichEmbed()
+    .setColor(sColor)
+    .setImage(heA)
+    return message.channel.send(heEmbed)
+  }
+//
+
 // if(cmd === `${prefix}porn`){
 //   if(!message.channel.nsfw) return message.channel.send(notNSFW)
 //   var pornImgs = [
