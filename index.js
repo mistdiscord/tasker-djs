@@ -256,7 +256,13 @@ if(cmd === `${prefix}gayp`){
   if(cmd === `${prefix}dick`){
     if(!message.channel.nsfw) return message.channel.send(notNSFW)
     var dickImgs = [
-    ''
+    'https://upload.wikimedia.org/wikipedia/commons/f/f9/A_full_erect_penis.jpg',
+    'https://showitoff.org/image/cm8pxq5473ta-0.jpg',
+    'https://1.bp.blogspot.com/-9yKDyd385jk/TVa__ODkHMI/AAAAAAAACE0/yy4ZnFBHUCM/s640/bigone.jpg.jpg',
+    'https://showitoff.org/image/0l5dqjm70y7h-0.jpg',
+    'https://x.imagefapusercontent.com/u/SissySlutt/4626892/1590962160/01_960216813.jpg',
+    'https://www.shaftly.com/wp-content/uploads/2016/09/in-gallery-pov-of-nice-hard-cocks-picture-uploaded-by-bchchef-on-imagefapcom-1475130878p8c4l.jpg',
+    'https://www.gaycamdudes.com/wp-content/uploads/2015/07/big-penis.jpg'
 
   ]
     var dA = dickImgs[Math.floor(Math.random() * dickImgs.length)];
@@ -317,7 +323,26 @@ if(cmd === `${prefix}hentai`){
     return message.channel.send(heEmbed)
   }
 //
-
+if(cmd === `${prefix}pussy`){
+  if(!message.channel.nsfw) return message.channel.send(notNSFW)
+  var pImgs = [
+  'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRtYPfVt5fjYgV_BtkZJE_3_NiGFO4sdXomQxpi74kdLrvr3mPT',
+  'https://66.media.tumblr.com/9556324fa4251868896ec4b3317f03f1/tumblr_p9jtg2kPhc1xsihfgo1_1280.jpg',
+  'http://qpornx.com/xxx/beautiful-pussy-close-up.jpg',
+  'http://www.bustyteengallery.com/images/017r4/free-closeup-pussy-pics.jpg',
+  'http://i.imgur.com/uclyffe.jpg',
+  'https://www.freexcafe.com/content/thumbs/Gl/656030.jpg',
+  'http://www.xoxoteiros.blog.br/wp-content/uploads/2017/02/1-4.jpg',
+  'https://cdn4.images.motherlessmedia.com/images/EEF7AB4.png?fs=opencloud',
+  'http://www.pussy-closeup.com/wp-content/uploads/sites/37/2018/01/pussycloseup-chloe-ftvgirls-pussy.jpg'
+]
+  var pA = pImgs[Math.floor(Math.random() * pImgs.length)];
+  let pEmbed = new discord.RichEmbed()
+    .setColor(sColor)
+    .setImage(pA)
+    return message.channel.send(pEmbed)
+  }
+//
 // if(cmd === `${prefix}porn`){
 //   if(!message.channel.nsfw) return message.channel.send(notNSFW)
 //   var pornImgs = [
