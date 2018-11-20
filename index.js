@@ -190,7 +190,7 @@ if(cmd === `${prefix}kick`){
   .setTitle(`User Kicked`)
   .setDescription(`You have been kicked for **${kReason}** by ${message.author}.`)
   .setColor(fColor)
-  if(!bReason){
+  if(!kReason){
     kickEmbed.setDescription(`${kUser} has been kicked by ${message.author}.`)
   }
 
