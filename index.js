@@ -145,6 +145,19 @@ bot.on("message", async message =>{
       return message.channel.send(slEmbed)
   }
 //
+if(cmd === `${prefix}ban`){
+  let bUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]))
+  if(!bUser) return message.channel.send(noUser)
+  let bReason = args.join(" ").slice(22)
+
+  let banEmbed = new discord.RichEmbed()
+  .setTitle(`User Banned`)
+  .setDescription(`${bUser} has been banned for ${bReason} by ${message.author}.`)
+  .setColor(fColor)
+
+  bUser.send(banEmbed)
+  message.channel.send(banEmbed)
+}
 
 if(cmd === `${prefix}kiss`){
   let slUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]))
@@ -256,13 +269,7 @@ if(cmd === `${prefix}gayp`){
   if(cmd === `${prefix}dick`){
     if(!message.channel.nsfw) return message.channel.send(notNSFW)
     var dickImgs = [
-    'https://upload.wikimedia.org/wikipedia/commons/f/f9/A_full_erect_penis.jpg',
-    'https://showitoff.org/image/cm8pxq5473ta-0.jpg',
-    'https://1.bp.blogspot.com/-9yKDyd385jk/TVa__ODkHMI/AAAAAAAACE0/yy4ZnFBHUCM/s640/bigone.jpg.jpg',
-    'https://showitoff.org/image/0l5dqjm70y7h-0.jpg',
-    'https://x.imagefapusercontent.com/u/SissySlutt/4626892/1590962160/01_960216813.jpg',
-    'https://www.shaftly.com/wp-content/uploads/2016/09/in-gallery-pov-of-nice-hard-cocks-picture-uploaded-by-bchchef-on-imagefapcom-1475130878p8c4l.jpg',
-    'https://www.gaycamdudes.com/wp-content/uploads/2015/07/big-penis.jpg'
+    ''
 
   ]
     var dA = dickImgs[Math.floor(Math.random() * dickImgs.length)];
