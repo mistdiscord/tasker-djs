@@ -55,6 +55,7 @@ bot.on("message", async message =>{
   let cmd = messageArray[0]
   let args = messageArray.slice(1)
   let bPing = bot.ping
+  let botowner = bot.users.get("506645322139697153")
   //
   function clean(text) {
             if (typeof(text) === "string")
@@ -66,7 +67,6 @@ bot.on("message", async message =>{
 
 
     if(cmd === `${prefix}eval`)
-            const botowner = bot.users.get("506645322139697153")
             if (message.author != botowner) {
                 message.reply(noPerms)
                 return;
