@@ -20,6 +20,8 @@ bot.on("ready", async () => {
 })
 
 bot.on("message", async message =>{
+
+
   let noUser = new discord.RichEmbed()
   .setColor(fColor)
   .setTitle(`Error`)
@@ -52,10 +54,38 @@ bot.on("message", async message =>{
   let messageArray = message.content.split(" ")
   let cmd = messageArray[0]
   let args = messageArray.slice(1)
-  let pingEmoji = ""
   let bPing = bot.ping
   //
+  function clean(text) {
+            if (typeof(text) === "string")
+                return text.replace(/`/g, "`" + String.fromCharCode(8203)).replace(/@/g, "@" + String.fromCharCode(8203));
+            else
+                return text;
+        }
 
+
+
+    if(cmd === `${prefix}eval`)
+            const botowner = bot.users.get("506645322139697153")
+            if (message.author != botowner) {
+                message.reply(noPerms)
+                return;
+            }
+            try {
+                const code = args.join(" ");
+                let evaled = eval(code);
+
+                if (typeof evaled !== "string")
+                    evaled = require("util").inspect(evaled);
+
+                message.channel.send(clean(evaled), {
+                    code: "xl"
+                });
+            } catch (err) {
+                message.channel.send(`\`ERROR\` \`\`\`xl\n${clean(err)}\n\`\`\``);
+            }
+        }
+    });
   if(cmd === `${prefix}help`){
     let hEmbed = new discord.RichEmbed()
     .setTitle(`Help`)
@@ -181,10 +211,10 @@ if(cmd === `${prefix}ban`){
   if(!bReason){
     message.guild.member(bUser).ban()
   }
-  else{
+  elseif(bReason){
     message.guild.member(bUser).ban(bReason)
   }
-  
+
 }
 //
 
@@ -193,7 +223,7 @@ if(cmd === `${prefix}kick`){
   if(!message.member.hasPermission("KICK_MEMBERS")) return message.channel.send(noPerms)
   let kUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]))
   if(!kUser) return message.channel.send(noUser)
-  if(kUser.hasPermission("KICK_MEMBERS")) return message.channel.send(noPerms)
+  if(bUser.hasPermission("KICK_MEMBERS")) return message.channel.send(noPerms)
   let kReason = args.join(" ").slice(22)
   let kickEmbed = new discord.RichEmbed()
   .setTitle(`User Kicked`)
@@ -215,7 +245,7 @@ if(cmd === `${prefix}kick`){
   if(!kReason){
     message.guild.member(kUser).kick()
   }
-  else{
+  elseif(kReason){
     message.guild.member(kUser).kick(kReason)
   }
 }
