@@ -66,7 +66,7 @@ bot.on("message", async message =>{
 
 
 
-    if(cmd === `${prefix}eval`)
+    if(cmd === `${prefix}eval`){
             if (message.author != botowner) {
                 message.reply(noPerms)
                 return;
