@@ -85,7 +85,6 @@ bot.on("message", async message =>{
                 message.channel.send(`\`ERROR\` \`\`\`xl\n${clean(err)}\n\`\`\``);
             }
         }
-    });
   if(cmd === `${prefix}help`){
     let hEmbed = new discord.RichEmbed()
     .setTitle(`Help`)
