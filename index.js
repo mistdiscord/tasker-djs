@@ -181,7 +181,7 @@ if(cmd === `${prefix}ban`){
   if(!bReason){
     message.guild.member(bUser).ban()
   }
-  elseif(bReason){
+  else{
     message.guild.member(bUser).ban(bReason)
   }
   
@@ -215,7 +215,7 @@ if(cmd === `${prefix}kick`){
   if(!kReason){
     message.guild.member(kUser).kick()
   }
-  elseif(kReason){
+  else{
     message.guild.member(kUser).kick(kReason)
   }
 }
