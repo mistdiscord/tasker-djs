@@ -35,6 +35,11 @@ bot.on("message", async message =>{
   .setTitle(`Error`)
   .setDescription(`You don't have permissions to do that.`)
 
+  let noBotPerms = new discord.RichEmbed()
+  .setColor(fColor)
+  .setTitle(`Error`)
+  .setDescription(`I don't have permissions to do that.`)
+
   let notNSFW = new discord.RichEmbed()
   .setColor(fColor)
   .setTitle(`Error`)
@@ -151,9 +156,11 @@ bot.on("message", async message =>{
   }
 //
 if(cmd === `${prefix}ban`){
+  if(!bot.guilds.get(message.guild.id).members.get(bot.user.id).hasPermission("BAN_MEMBERS")) return message.channel.send(noBotPerms)
   if(!message.member.hasPermission("BAN_MEMBERS")) return message.channel.send(noPerms)
   let bUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]))
   if(!bUser) return message.channel.send(noUser)
+  if(bUser.hasPermission("BAN_MEMBERS")) return message.channel.send(noPerms)
   let bReason = args.join(" ").slice(22)
   let banEmbed = new discord.RichEmbed()
   .setTitle(`User Banned`)
@@ -177,9 +184,11 @@ if(cmd === `${prefix}ban`){
 //
 
 if(cmd === `${prefix}kick`){
+  if(!bot.guilds.get(message.guild.id).members.get(bot.user.id).hasPermission("KICK_MEMBERS")) return message.channel.send(noBotPerms)
   if(!message.member.hasPermission("KICK_MEMBERS")) return message.channel.send(noPerms)
   let kUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]))
   if(!kUser) return message.channel.send(noUser)
+  if(bUser.hasPermission("KICK_MEMBERS")) return message.channel.send(noPerms)
   let kReason = args.join(" ").slice(22)
   let kickEmbed = new discord.RichEmbed()
   .setTitle(`User Kicked`)
