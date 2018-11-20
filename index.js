@@ -193,7 +193,7 @@ if(cmd === `${prefix}kick`){
   if(!message.member.hasPermission("KICK_MEMBERS")) return message.channel.send(noPerms)
   let kUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]))
   if(!kUser) return message.channel.send(noUser)
-  if(bUser.hasPermission("KICK_MEMBERS")) return message.channel.send(noPerms)
+  if(kUser.hasPermission("KICK_MEMBERS")) return message.channel.send(noPerms)
   let kReason = args.join(" ").slice(22)
   let kickEmbed = new discord.RichEmbed()
   .setTitle(`User Kicked`)
