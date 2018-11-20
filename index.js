@@ -149,10 +149,15 @@ if(cmd === `${prefix}ban`){
   let bUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]))
   if(!bUser) return message.channel.send(noUser)
   let bReason = args.join(" ").slice(22)
-
+  if(!bReason){
+    let bReason = "no reason specified"
+  }
+  if(bReason === ""){
+    let bReason = "no reason specified"
+  }
   let banEmbed = new discord.RichEmbed()
   .setTitle(`User Banned`)
-  .setDescription(`${bUser} has been banned for ${bReason} by ${message.author}.`)
+  .setDescription(`${bUser} has been banned for **${bReason}** by ${message.author}.`)
   .setColor(fColor)
 
   bUser.send(banEmbed)
