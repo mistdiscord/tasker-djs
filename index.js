@@ -30,6 +30,11 @@ bot.on("message", async message =>{
   .setTitle(`Error`)
   .setDescription(`You didn't specify a question.`)
 
+  let noPerms = new discord.RichEmbed()
+  .setColor(fColor)
+  .setTitle(`Error`)
+  .setDescription(`You don't have permissions to do that.`)
+
   let notNSFW = new discord.RichEmbed()
   .setColor(fColor)
   .setTitle(`Error`)
@@ -146,6 +151,7 @@ bot.on("message", async message =>{
   }
 //
 if(cmd === `${prefix}ban`){
+  if(!message.member.hasPermission("BAN_MEMBERS")) return message.channel.send(noPerms)
   let bUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]))
   if(!bUser) return message.channel.send(noUser)
   let bReason = args.join(" ").slice(22)
@@ -153,13 +159,46 @@ if(cmd === `${prefix}ban`){
   .setTitle(`User Banned`)
   .setDescription(`${bUser} has been banned for **${bReason}** by ${message.author}.`)
   .setColor(fColor)
+
+  let banEmbed2 = new discord.RichEmbed()
+  .setTitle(`User Banned`)
+  .setDescription(`You have been banned for **${bReason}** by ${message.author}.`)
+  .setColor(fColor)
   if(!bReason){
     banEmbed.setDescription(`${bUser} has been banned by ${message.author}.`)
   }
 
 
-  bUser.send(banEmbed)
+  bUser.send(banEmbed2)
   message.channel.send(banEmbed)
+
+  message.guild.member(bUser).ban(bReason)
+}
+//
+
+if(cmd === `${prefix}kick`){
+  if(!message.member.hasPermission("KICK_MEMBERS")) return message.channel.send(noPerms)
+  let kUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]))
+  if(!kUser) return message.channel.send(noUser)
+  let kReason = args.join(" ").slice(22)
+  let kickEmbed = new discord.RichEmbed()
+  .setTitle(`User Kicked`)
+  .setDescription(`${kUser} has been kicked for **${kReason}** by ${message.author}.`)
+  .setColor(fColor)
+
+  let kickEmbed2 = new discord.RichEmbed()
+  .setTitle(`User Kicked`)
+  .setDescription(`You have been kicked for **${kReason}** by ${message.author}.`)
+  .setColor(fColor)
+  if(!bReason){
+    kickEmbed.setDescription(`${kUser} has been kicked by ${message.author}.`)
+  }
+
+
+  kUser.send(kickEmbed2)
+  message.channel.send(kickEmbed)
+
+  message.guild.member(kUser).kick(kReason)
 }
 
 if(cmd === `${prefix}kiss`){
