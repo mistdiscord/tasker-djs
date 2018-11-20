@@ -178,8 +178,13 @@ if(cmd === `${prefix}ban`){
 
   bUser.send(banEmbed2)
   message.channel.send(banEmbed)
-
-  message.guild.member(bUser).ban(bReason)
+  if(!bReason){
+    message.guild.member(bUser).ban()
+  }
+  elseif(bReason){
+    message.guild.member(bUser).ban(bReason)
+  }
+  
 }
 //
 
@@ -207,7 +212,12 @@ if(cmd === `${prefix}kick`){
   kUser.send(kickEmbed2)
   message.channel.send(kickEmbed)
 
-  message.guild.member(kUser).kick(kReason)
+  if(!kReason){
+    message.guild.member(kUser).kick()
+  }
+  elseif(kReason){
+    message.guild.member(kUser).kick(kReason)
+  }
 }
 
 if(cmd === `${prefix}kiss`){
