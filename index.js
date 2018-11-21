@@ -130,7 +130,7 @@ bot.on("message", async message =>{
   
   if(cmd === `${prefix}say`){
     
-    let said = args.split(' ').shift()
+    let said = args.join(" ").slice(5)
     let sayEmbed = new discord.RichEmbed()
     .setColor(sColor)
     .setDescription(`${message.author} said: ${said}`)
