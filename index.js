@@ -121,6 +121,15 @@ bot.on("message", async message =>{
 
     message.channel.send(q8Embed)
   }
+  
+  if(cmd === `${prefix}say`){
+
+    let sayEmbed = new discord.RichEmbed()
+    .setColor(sColor)
+    .setDescription(`${message.author} said: ${message.content}`)
+
+    message.channel.send(sayEmbed)
+  }
 //
   if(cmd === `${prefix}ping`){
     let pEmbed = new discord.RichEmbed()
