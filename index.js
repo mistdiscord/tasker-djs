@@ -132,7 +132,7 @@ bot.on("message", async message =>{
     
     let said = args.join(" ").slice(22)
     if(said.length < 2){
-       return message.channel.send()
+       return message.channel.send(moreVariables)
   }
     let sayEmbed = new discord.RichEmbed()
     .setColor(sColor)
