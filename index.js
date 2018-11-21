@@ -26,6 +26,12 @@ bot.on("message", async message =>{
   .setColor(fColor)
   .setTitle(`Error`)
   .setDescription(`Either you didn't specify a member or I couldn't find that member.`)
+  
+  let moreVariables = new discord.RichEmbed()
+  .setColor(fColor)
+  .setTitle(`Error`)
+  .setDescription(`Add more to send, and then try again.`)
+
 
   let noQuestion = new discord.RichEmbed()
   .setColor(fColor)
@@ -123,7 +129,10 @@ bot.on("message", async message =>{
   }
   
   if(cmd === `${prefix}say`){
-    let said = args.join().slice(22)
+    let said = args.join(" ").slice(22)
+    if(said.length !=>2{
+       return message.channel.send()
+  }
     let sayEmbed = new discord.RichEmbed()
     .setColor(sColor)
     .setDescription(`${message.author} said: ${said}`)
