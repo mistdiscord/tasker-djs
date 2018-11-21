@@ -3,7 +3,7 @@ const gPrefix = '!'
 const bToken = process.env.TOKEN
 const bId = '513224333884391445'
 
-const bot = new discord.Client()
+const bot = new discord.Client({disableEveryone:true})
 
 //---------------------------------------------
 const sColor = "#77B255"
@@ -123,7 +123,7 @@ bot.on("message", async message =>{
   }
   
   if(cmd === `${prefix}say`){
-    let said = args.slice(22)
+    let said = args.join().slice(22)
     let sayEmbed = new discord.RichEmbed()
     .setColor(sColor)
     .setDescription(`${message.author} said: ${said}`)
