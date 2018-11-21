@@ -129,8 +129,9 @@ bot.on("message", async message =>{
   }
   
   if(cmd === `${prefix}say`){
+    
     let said = args.join(" ").slice(22)
-    if(said.length !=>2{
+    if(said.length !>=2{
        return message.channel.send()
   }
     let sayEmbed = new discord.RichEmbed()
